@@ -13,56 +13,59 @@ import City from "./components/sidebar/Cities/City.jsx";
 import Form from "./components/UI/Form.jsx";
 import { CitiesProvider } from "./contexts/CitiesContext.jsx";
 
-const router = createBrowserRouter([
-  {
-    element: <Homepage></Homepage>,
-    path: "/",
-  },
-  {
-    element: <Product></Product>,
-    path: "/product",
-  },
-  {
-    element: <Pricing></Pricing>,
-    path: "/pricing",
-  },
-  {
-    element: <Login></Login>,
-    path: "/login",
-  },
-  {
-    element: <AppLayout></AppLayout>,
-    path: "/app",
-    errorElement: <PageNotFound></PageNotFound>,
+const router = createBrowserRouter(
+  [
+    {
+      element: <Homepage></Homepage>,
+      path: "/",
+    },
+    {
+      element: <Product></Product>,
+      path: "/product",
+    },
+    {
+      element: <Pricing></Pricing>,
+      path: "/pricing",
+    },
+    {
+      element: <Login></Login>,
+      path: "/login",
+    },
+    {
+      element: <AppLayout></AppLayout>,
+      path: "/app",
+      errorElement: <PageNotFound></PageNotFound>,
 
-    children: [
-      {
-        element: <CityList></CityList>,
-        index: true,
-      },
-      {
-        element: <CityList></CityList>,
-        path: "cities",
-      },
-      {
-        element: <City></City>,
-        path: "cities/:id",
-      },
-      {
-        element: <CountriesList></CountriesList>,
-        path: "countries",
-      },
-      {
-        element: <Form></Form>,
-        path: "form",
-      },
-      {
-        element: <PageNotFound></PageNotFound>,
-        path: "*",
-      },
-    ],
-  },
-]);
+      children: [
+        {
+          element: <CityList></CityList>,
+          index: true,
+        },
+        {
+          element: <CityList></CityList>,
+          path: "cities",
+        },
+        {
+          element: <City></City>,
+          path: "cities/:id",
+        },
+        {
+          element: <CountriesList></CountriesList>,
+          path: "countries",
+        },
+        {
+          element: <Form></Form>,
+          path: "form",
+        },
+        {
+          element: <PageNotFound></PageNotFound>,
+          path: "*",
+        },
+      ],
+    },
+  ],
+  { basename: import.meta.env.DEV ? "/" : "/WorldWide-React-Pratice/" }
+);
 
 function App() {
   return (
