@@ -48,7 +48,7 @@ function Map() {
     <div className={styles.mapContainer}>
       {!geoLocationPosition && (
         <Button type="position" onClick={getPosition}>
-          {isLoadingPosition ? "Loading" : "Go to your Position"}
+          {isLoadingPosition ? "Loading" : "Use your Position"}
         </Button>
       )}
 
@@ -63,7 +63,7 @@ function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
         />
-        {cities.map((city) => (
+        {cities?.map((city) => (
           <Marker
             position={[city.position.lat, city.position.lng]}
             key={city.id}

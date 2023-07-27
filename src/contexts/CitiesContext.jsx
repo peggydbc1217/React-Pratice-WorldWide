@@ -2,7 +2,9 @@ import { useState, useEffect, createContext, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useReducer } from "react";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://world-wide-json-data-b167ad32a9c4.herokuapp.com";
+
+// const BASE_URL = "http://localhost:8000";
 
 const CitiesContext = createContext();
 
@@ -59,7 +61,7 @@ function CitiesProvider({ children }) {
       try {
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
-        dispatch({ type: "cities/loaded", payload: data });
+        dispatch({ type: "cities/loaded", payload: data.data });
       } catch (err) {
         dispatch({
           type: "rejected",
@@ -77,7 +79,7 @@ function CitiesProvider({ children }) {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
 
-      dispatch({ type: "city/loaded", payload: data });
+      dispatch({ type: "city/loaded", payload: data.data });
     } catch (err) {
       dispatch({
         type: "rejected",
@@ -98,8 +100,9 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await res.json();
+
       //keep the ui state in sync with remote state
-      dispatch({ type: "city/created", payload: data });
+      dispatch({ type: "city/created", payload: data.data });
     } catch (err) {
       dispatch({
         type: "rejected",

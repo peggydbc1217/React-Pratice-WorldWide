@@ -7,6 +7,7 @@ import { useCities } from "../../../contexts/CitiesContext";
 
 function CountriesList() {
   const { cities, isLoading } = useCities();
+  console.log("cities=", cities);
 
   if (isLoading) <Spinner></Spinner>;
 
@@ -23,6 +24,8 @@ function CountriesList() {
     }
     return acc;
   }, []);
+
+  console.log(countries);
 
   return (
     <ul className={styles.countryList}>

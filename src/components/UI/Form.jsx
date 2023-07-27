@@ -13,6 +13,7 @@ import Button from "./Button";
 import BackButton from "./BackButton";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import { v4 as uuidv4 } from "uuid";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -68,13 +69,18 @@ function Form() {
   // form submission, create a new city by context API
   async function handleSubmit(e) {
     e.preventDefault();
+
+    const id = uuidv4();
+
     if (!cityName || !date) return;
     const newCity = {
       cityName,
+      country,
       date,
       notes,
       emoji,
       position: { lat, lng },
+      id,
     };
     //this is an async function, should await a new city data arrived
     await createCity(newCity);
