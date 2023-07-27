@@ -6,15 +6,16 @@ function useGeoLocation(defaultPosition = null) {
   const [error, setError] = useState(null);
 
   function getPosition() {
-    if (!navigator.geolocation)
-      return setError("Your browser does not support geolocation");
+    if (!navigator.geolocation) {
+      return setError("Geolocation is not supported by your browser");
+    }
 
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
+      (position) => {
         setPosition({
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
         });
         setIsLoading(false);
       },

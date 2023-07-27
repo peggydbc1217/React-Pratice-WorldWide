@@ -34,17 +34,19 @@ function City() {
   // };
 
   const { cityName, emoji, date, notes } = currentCity || {};
+  console.log(currentCity);
+
+  if (isLoading) return <Spinner></Spinner>;
 
   return (
     <>
       {isLoading && <Spinner />}
       {!isLoading && currentCity && (
         <div className={styles.city}>
-          {id}
           <div className={styles.row}>
-            <h6>City name</h6>
+            <h6>{cityName}</h6>
             <h3>
-              <span>{flagemojiToPNG(emoji)}</span> {cityName}
+              <span>{emoji && flagemojiToPNG(emoji)}</span> {cityName}
             </h3>
           </div>
 

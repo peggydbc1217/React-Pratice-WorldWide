@@ -1,7 +1,7 @@
 // import styles from "./AppLayout.module.css";
 import SideBar from "../components/sidebar/SideBar";
 import styles from "./AppLayout.module.css";
-import Map from "../components/Map/Map";
+import Map from "../components/Map/Map1";
 
 function AppLayout() {
   return (

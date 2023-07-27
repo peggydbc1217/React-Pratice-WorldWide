@@ -22,7 +22,7 @@ function reducer(state, action) {
     case "city/loaded":
       return {
         ...state,
-        curreentCity: action.payload,
+        currentCity: action.payload,
         isLoading: false,
         error: "",
       };
@@ -30,11 +30,13 @@ function reducer(state, action) {
       return {
         ...state,
         cities: [...state.cities, action.payload],
+        isLoading: false,
       };
     case "city/deleted":
       return {
         ...state,
         cities: state.cities.filter((city) => city.id !== action.payload),
+        isLoading: false,
       };
     case "rejected": {
       return { ...state, isLoading: false, error: action.payload };
