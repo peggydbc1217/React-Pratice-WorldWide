@@ -6,7 +6,7 @@
   "homepage": "https://你的github名字.github.io/你的repository名字",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=./",
+    "build": "vite build --base=/WorldWide-React-Pratice/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
