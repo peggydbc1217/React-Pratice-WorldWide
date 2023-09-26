@@ -1,5 +1,5 @@
 # React-Pratice-WorldWide
-Mainly pratice React, Redux and React leaflet library.
+Mainly pratice React, Redux and React leaflet.
 Building both front end and backend, exploring some features in React leaflet.
 GithubPages: https://peggydbc1217.github.io/WorldWide-React-Pratice/
 
